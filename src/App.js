@@ -9,6 +9,7 @@ import {
 import Dashboard from "./Dashboard";
 import Frooger from "./Frogger";
 import WordColour from "./WordColour";
+import FindAWord from "./FindAWord";
 
 
 const useLocalStorageState = (key, defaultValue) => {
@@ -66,6 +67,10 @@ function App() {
         {
             path: "/wordcolour",
             element: <WordColour decX={decX}/>,
+        },
+        {
+            path: "/findaword",
+            element: <FindAWord decX={decX}/>,
         },
     ]);
 
