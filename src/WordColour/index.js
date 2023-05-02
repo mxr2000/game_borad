@@ -25,7 +25,7 @@ const GAME_INIT = 0
 const GAME_RUNNING = 1
 const GAME_ENDED = 4
 
-const WordColour = () => {
+const WordColour = ({decX}) => {
     const [currentColor, setCurrentColor] = useState("");
     const [gameState, setGameState] = useState(GAME_INIT)
     const [colors, setColors] = useState(["", "", "", ""]);
@@ -48,6 +48,7 @@ const WordColour = () => {
             if (newState === GAME_ENDED) {
                 alert("You have won")
                 setGameState(GAME_RUNNING)
+                decX()
             }
             const target = getRandomColor()
             setCurrentColor(target)

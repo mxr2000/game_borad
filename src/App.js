@@ -25,14 +25,27 @@ const useLocalStorageState = (key, defaultValue) => {
 }
 
 function App() {
-    const [x, setX] = useLocalStorageState("x", 0)
+    const [x, setX] = useLocalStorageState("x", -1)
+    const [originalX, setOriginalX] = useState()
+    const decX = () => {
+        const newX = x - 1
+        if (newX <= 0) {
+            alert("Congratulations!")
+            setX(originalX)
+        } else {
+            setX(newX)
+        }
+    }
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await fetch('https://cgi.cse.unsw.edu.au/~cs6080/raw/data/score.json');
                 const json = await response.json();
-                setX(json.score);
+                if (x === -1) {
+                    setX(json.score);
+                }
+                setOriginalX(json.score)
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -44,15 +57,15 @@ function App() {
     const router = createBrowserRouter([
         {
             path: "/home",
-            element: <Dashboard val={x}/>,
+            element: <Dashboard val={x} resetX={() => setX(originalX)}/>,
         },
         {
             path: "/frogger",
-            element: <Frooger/>,
+            element: <Frooger decX={decX}/>,
         },
         {
             path: "/wordcolour",
-            element: <WordColour/>,
+            element: <WordColour decX={decX}/>,
         },
     ]);
 
@@ -62,7 +75,7 @@ function App() {
             <SideBar/>
             <div className={"right"}>
                 <div className={"content"}>
-                    <RouterProvider router={router} />
+                    <RouterProvider router={router}/>
 
                 </div>
                 <FooterBar/>

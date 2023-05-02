@@ -94,7 +94,7 @@ const moveCars = (grid) => {
     return {isLive, newGrid}
 }
 
-const Frooger = () => {
+const Frooger = ({decX}) => {
     const [grid, setGrid] = useState([]);
     const [frogPosition, setFrogPosition] = useState({ row: 10, col: 5 });
     useEffect(() => {
@@ -118,6 +118,7 @@ const Frooger = () => {
             setGrid(newGrid);
             setFrogPosition({ row: newRow, col: newCol });
             if (newRow === 0) {
+                decX()
                 alert('You win!');
             }
         }
