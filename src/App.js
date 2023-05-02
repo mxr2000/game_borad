@@ -7,6 +7,7 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import Dashboard from "./Dashboard";
+import Frooger from "./Frogger";
 
 
 const useLocalStorageState = (key, defaultValue) => {
@@ -43,6 +44,10 @@ function App() {
         {
             path: "/home",
             element: <Dashboard val={x}/>,
+        },
+        {
+            path: "/frogger",
+            element: <Frooger/>,
         },
     ]);
 

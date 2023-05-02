@@ -1,0 +1,10 @@
+.container {
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: repeat(11, 1fr);
+}
+
+.cell {
+
+}
