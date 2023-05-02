@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import Frooger from "./Frogger";
+import WordColour from "./WordColour";
 
 
 const useLocalStorageState = (key, defaultValue) => {
@@ -48,6 +49,10 @@ function App() {
         {
             path: "/frogger",
             element: <Frooger/>,
+        },
+        {
+            path: "/wordcolour",
+            element: <WordColour/>,
         },
     ]);
 

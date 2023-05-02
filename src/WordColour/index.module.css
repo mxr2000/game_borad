@@ -1,0 +1,21 @@
+.container {
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+}
+
+.left {
+    background-color: #ccc;
+    width: 50%;
+}
+
+.right {
+    width: 50%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+.rectangle {
+
+}
